@@ -35,4 +35,4 @@ npm install json-server
 
 json-server --watch db.json
 
-db.json file is already in root directory of this application.
+db.json file is already created in root directory of this application.
