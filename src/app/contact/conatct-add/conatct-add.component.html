@@ -1,0 +1,48 @@
+<form [formGroup]="myform" (ngSubmit)="onFormSubmit()"> 
+  
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="name" required>
+        <p class="error" *ngIf="myform.get('name').hasError('minlength') && myform.get('name').touched">name can not be shorter than 5 characters.</p>
+        <p class="error" *ngIf="myform.get('name').hasError('required') && myform.get('name').touched">name is required.</p>
+    </div>
+  
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email" required>
+        <p class="error" *ngIf="myform.get('email').hasError('minlength') && myform.get('email').touched">name can not be shorter than 5 characters.</p>
+        <p class="error" *ngIf="myform.get('email').hasError('pattern') && myform.get('email').touched">Email is required.</p>
+    </div>
+
+    <div class="form-group">
+        <label>Company</label>
+        <input type="text" class="form-control" formControlName="company">
+        <p class="error" *ngIf="myform.get('company').hasError('minlength') && myform.get('company').touched">company can not be shorter than 5 characters.</p>
+        <p class="error" *ngIf="myform.get('company').hasError('required') && myform.get('company').touched">company is required.</p>
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" class="form-control" formControlName="phoneNumber">
+        <p class="error" *ngIf="myform.get('phoneNumber').hasError('minlength') && myform.get('phoneNumber').touched">phone Number can not be shorter than 5 characters.</p>
+        <p class="error" *ngIf="myform.get('phoneNumber').hasError('pattern') && myform.get('phoneNumber').touched">phone Number is required.</p>
+    </div>
+
+    <div class="form-group">
+        <label>Job Title</label>
+        <input type="text" class="form-control" formControlName="jobTitle">
+        <p class="error" *ngIf="myform.get('jobTitle').hasError('minlength') && myform.get('jobTitle').touched">jobTitle can not be shorter than 5 characters.</p>
+        <p class="error" *ngIf="myform.get('jobTitle').hasError('pattern') && myform.get('jobTitle').touched">jobTitle is required.</p>
+    </div>
+
+    <div class="form-group">
+        <label>Note</label>
+        <input type="text" class="form-control" formControlName="note">
+        <p class="error" *ngIf="myform.get('note').hasError('minlength') && myform.get('note').touched">Note can not be shorter than 10 characters.</p>
+        <p class="error" *ngIf="myform.get('note').hasError('pattern') && myform.get('note').touched">Note is required.</p>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Submit"  [disabled]="myform.invalid" />
+    <input type="button" class="btn btn-info" value="Back to View" (click)="backToView()" />
+
+  </form>
